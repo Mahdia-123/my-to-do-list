@@ -96,6 +96,21 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   transition: transform all 0.03s ease-in-out;
   transform: scale(1.1);
 }
+footer {
+  font-size: 14px;
+  text-align: center;
+  margin-top: 5px;
+}
+footer a {
+  color: #164a4a;
+  font-weight: bold;
+  text-decoration: none;
+}
+footer a:hover {
+  text-decoration: underline #ef7537;
+  transition: all 300ms ease-in-out;
+  color: #ef7537;
+}
 @media (max-width: 960px) {
   .grid-3-columns {
     grid-template-columns: 1fr 1fr;
