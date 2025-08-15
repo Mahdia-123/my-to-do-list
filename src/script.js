@@ -1,7 +1,5 @@
-// src/script.js
 const form = document.getElementById("form");
 
-// Load tasks from localStorage on page load
 window.addEventListener("DOMContentLoaded", () => {
   const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
   tasks.forEach((task) => addTaskToDOM(task));
@@ -25,7 +23,6 @@ form.addEventListener("submit", function (e) {
   form.reset();
 });
 
-// Function to create and append task to DOM
 function addTaskToDOM(task) {
   const checkboxRow = document.createElement("div");
   checkboxRow.classList.add("checkbox-row");
@@ -49,7 +46,6 @@ function addTaskToDOM(task) {
     </div>
   `;
 
-  // Append to the correct section
   let sectionId = "";
   if (task.category === "work") sectionId = "workSection";
   else if (task.category === "study") sectionId = "studySection";
@@ -57,7 +53,6 @@ function addTaskToDOM(task) {
 
   document.getElementById(sectionId).appendChild(checkboxRow);
 
-  // Delete button functionality
   const deleteBtn = checkboxRow.querySelector(".btn-delete");
   deleteBtn.addEventListener("click", () => {
     checkboxRow.remove();
@@ -65,14 +60,12 @@ function addTaskToDOM(task) {
   });
 }
 
-// Save task to localStorage
 function saveTaskToStorage(task) {
   let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
   tasks.push(task);
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
-// Remove task from localStorage
 function removeTaskFromStorage(taskToRemove) {
   let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
   tasks = tasks.filter(
@@ -86,7 +79,6 @@ function removeTaskFromStorage(taskToRemove) {
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
-// Helper function for colors
 function getColor(category) {
   switch (category) {
     case "work":
